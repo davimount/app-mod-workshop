@@ -28,7 +28,7 @@ steps:
       # - update
       - ${_SERVICE_NAME}-dev
       - '--platform=managed'
-      - '--port=80'
+      - '--port=8080'
       - >-
         --image=$_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
 #      - >-
@@ -57,7 +57,7 @@ steps:
       # - update
       - ${_SERVICE_NAME}-prod
       - '--platform=managed'
-      - '--port=80'
+      - '--port=8080'
       - >-
         --image=$_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
 #      - >-
@@ -69,7 +69,7 @@ steps:
     env: # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values=
     # copying RAILS_ENV approach.
     - PHP_ENV=production
-    - PORT=80
+    - PORT=8080
     - APP_NAME="A PHP Amarcord app deployed via Cloud Build to PROD - please do not deploy on Fridays!"
     - DEBUG="false"
     - CODE_REPO="https://github.com/${_GITHUB_USER/app-mod-workshop/"
@@ -90,8 +90,8 @@ substitutions:
   _SERVICE_NAME: php-amarcord
   _EXECUTION_ENVIRONMENT: 'rgc/cloudbuild'
   #_GITHUB_USER: Friends-of-Ricc # change your your own, eg 'gregorio'
-  _GITHUB_USER: palladius # change your your own, eg 'gregorio'
-  _DEVFEST_CITY: pescara
+  _GITHUB_USER: davimount # change your your own, eg 'gregorio'
+  _DEVFEST_CITY: milano
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - php-amarcord
